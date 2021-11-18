@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Object Creation</h2>
+    <p id="demo"></p>
+
+    <script>
+        //object by literal
+        const person = {
+            firstName: 'Juan',
+            lastName: 'Cruz',
+            age: 30,
+            gender: 'male'
+        }
+        console.log(person);
+        // document.getElementById("demo").innerHTML = person.firstName + " Is " + person.age + " years old.";
+
+        const person2 = {};
+        person2.firstName = 'john';
+        person2.lastName = 'lloyd';
+        person2.age = 20;
+        person2.gender = 'male';
+
+        // document.getElementById("demo").innerHTML = person2.firstName + person2.lastName + " Is a " + person.gender;
+
+        //object instance
+        const person3 = new Object();
+        person3.firstName = 'charles';
+        person3.lastName = 'darwin';
+        person3.age = 45;
+        person3.gender = 'male';
+
+        // document.getElementById("demo").innerHTML = person3.firstName + " " + person3.age +  " " +  " years old ";
+
+        //object constructor
+        function person4(firstName, lastName, age, gender, subject) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.gender = gender;
+            this.subject = subject;
+            this.intro = function() {
+                let subjects = [];
+                for(let i = 0; i < subject.length; i++) {
+                    // console.log(subject[i]);
+                    subjects += subject[i];
+                    console.log(subjects);
+              }
+                alert(`Hi I am teacher ${this.firstName} I teach ${this.lastName} ${this.subject}`)
+            }
+            
+        }
+        let teacher1 = new person4("joseph", "rizal", 30, "Math")
+        let teacher2 = new person4("joe", "biden", 31, "male", ["Englis", "science"]);
+        let teacher3 = new person4("josehi", "clarks", 32, "female", ["pilipino", "basic computer", "sceience"]);
+        document.getElementById("demo").innerHTML = "Teacher " + teacher1.firstName + " is " + teacher1.age + " years old";
+
+        // alert(`{firstname} ${lastname} ${age}`)
+
+        function person5(firstName, lastName, age, gender, interest) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.gender = gender;
+            this.interest = interest;
+            this.greetings = function() {
+                alert('Hi' + ' this is ' + this.firstName);
+            }
+            //sample method
+            this.bio = function() {
+                let pronoun;
+                if(this.gender == 'male' || this.gender == 'Male'){
+                    pronoun = his;
+                }
+                 else {
+                    pronoun = her;
+                }
+                // alert(pronoun + " name is " + this.firstName +  this.lastName + " ." + pronoun + " interest are " + this.interest[0] + " and " + this.interest[1]);
+            }
+        }
+
+        let student1 = new person5("josefa", "rizal", 30, "male", ["dancing", "music"]);
+        student.bio();
+        let student2 = new person5("joe", "clark", 31, "female", ["singing", "clifing"]);
+        let student3 = new person5("josehi", "clarks", 32, "female", ["reading", "jumping"]);
+
+        // document.getElementById("demo").innerHTML = "Student " + this.firstName + " is " + this.age + " years old";
+        
+        
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login Form</title>
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <form name="alphavalidate" action="form_process.html" method="get" onsubmit="return check_Alpha(this)" >
+                <input type="text" name="username" size="40" placeholder="user name" />
+                <!-- <label for="username">Username must be a alpahanumeric and contain 5 - 12 characters</label> -->
+                <input type="text" name="password" size="40" placeholder="password" />
+                <!-- <label for="username">Password must alpahanumeric (@, @,_ and - are also allowed and be 8 -20 charaters</label> -->
+                <button><a href="RegistrationForm1.html">Login</a></button>
+                <p class="message">Please Login <a href="#">Register</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        function check_Alpha(letters){
+    var user = /^[a-zA-Z0-9]+$/;
+    var pass =  /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/;
+
+    if(user.test(letters.username.value) == false){
+   alert("Name must be in alphabets  and numbers only");
+   letters.username.focus();
+   return false;
+    }
+    if(letters.username.value == ""){
+      alert("Name Field cannot be left empty");
+      letters.username.focus();
+      return false;
+    }
+    if(pass.test(letters.password.value) == false){
+   alert("Password can be in alphabets  and numbers and other characters");
+   letters.password.focus();
+   return false;
+    }
+    if(letters.password.value == ""){
+      alert("password Field cannot be left empty");
+      letters.password.focus();
+      return false;
+    }
+    return true;
+  }
+      </script>
+    
+    
+</body>
+</html>
